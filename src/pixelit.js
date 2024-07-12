@@ -227,6 +227,7 @@ class pixelit {
     const tempContext = tempCanvas.getContext("2d");
     // draw the image into the canvas
     tempContext.drawImage(this.drawfrom, 0, 0, scaledW, scaledH);
+    
     document.body.appendChild(tempCanvas);
     //configs to pixelate
     this.ctx.mozImageSmoothingEnabled = false;
@@ -239,22 +240,22 @@ class pixelit {
       finalWidth +=
         this.drawfrom.naturalWidth > this.drawfrom.naturalHeight
           ? parseInt(
-              this.drawfrom.naturalWidth / (this.drawfrom.naturalWidth * this.scale)
-            ) / 1.5
+            this.drawfrom.naturalWidth / (this.drawfrom.naturalWidth * this.scale)
+          ) / 1.5
           : parseInt(
-              this.drawfrom.naturalWidth / (this.drawfrom.naturalWidth * this.scale)
-            );
+            this.drawfrom.naturalWidth / (this.drawfrom.naturalWidth * this.scale)
+          );
     }
     let finalHeight = this.drawfrom.naturalHeight;
     if (this.drawfrom.naturalHeight > 300) {
       finalHeight +=
         this.drawfrom.naturalHeight > this.drawfrom.naturalWidth
           ? parseInt(
-              this.drawfrom.naturalHeight / (this.drawfrom.naturalHeight * this.scale)
-            ) / 1.5
+            this.drawfrom.naturalHeight / (this.drawfrom.naturalHeight * this.scale)
+          ) / 1.5
           : parseInt(
-              this.drawfrom.naturalHeight / (this.drawfrom.naturalHeight * this.scale)
-            );
+            this.drawfrom.naturalHeight / (this.drawfrom.naturalHeight * this.scale)
+          );
     }
     //draw to final canvas
     //https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
@@ -394,5 +395,8 @@ class pixelit {
     document.querySelector("body").removeChild(link);
   }
 
+  getImagedata() {
+    console.log(this.drawfrom);
+  }
   //end class
 }
